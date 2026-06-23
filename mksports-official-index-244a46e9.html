@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 平台功能简介</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2a3e;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 导航 */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #e6eaef;
+            margin-bottom: 2.8rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.3px;
+            color: #1d2b4b;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: #3e4b5f;
+        }
+
+        .nav-links span {
+            cursor: default;
+        }
+
+        .nav-links a {
+            color: #1d2b4b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #1d2b4b;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.2rem;
+            color: #0b1a30;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 720px;
+            color: #334155;
+        }
+
+        .hero .intro-link {
+            margin-top: 1.8rem;
+        }
+
+        /* 三个场景卡片 */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem 2rem;
+            border: 1px solid #dee4ed;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #16243b;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3b4a62;
+        }
+
+        .card .emoji-badge {
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.01);
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #0b1a30;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #1d2b4b;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #3b4a62;
+            padding-left: 0.2rem;
+        }
+
+        .faq-a a {
+            color: #1d2b4b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .faq-a a:hover {
+            background: #eef2f7;
+        }
+
+        /* 底部 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5f6d81;
+            margin-top: 1.5rem;
+            padding: 1rem 0 0.5rem;
+            border-top: 1px solid #dce2ec;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem 1.8rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .faq-summary {
+                padding: 1.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <div class="nav-brand">MK体育</div>
+        <div class="nav-links">
+            <span>平台介绍</span>
+            <span>使用场景</span>
+            <span>常见说明</span>
+        </div>
+    </nav>
+
+    <!-- 核心介绍 hero -->
+    <section class="hero">
+        <h1>快速识别 MK体育 的用途</h1>
+        <p>
+            <a href="https://mksports--official.com" style="color: #0b1a30; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">MK体育</a> 
+            是一个围绕体育资讯与数据查询而设计的在线平台。无论你是想了解赛事动态、球队表现，还是需要查看历史统计数据，这里都提供了结构化的信息索引。页面布局以清晰、直接为原则，帮助用户快速定位所需内容。
+        </p>
+        <div class="intro-link">
+            <span style="background: #eef2f7; padding: 0.5rem 1.2rem; border-radius: 60px; font-size: 0.9rem; color: #1f2a3e;">
+                ⚡ 适合体育爱好者、数据分析者、赛事关注者
+            </span>
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes">
+        <div class="card">
+            <div class="emoji-badge">📋</div>
+            <h3>赛事信息浏览</h3>
+            <p>查看各类体育赛事的基本信息、赛程安排及实时比分摘要。页面以模块化方式呈现，便于快速扫读与对比。</p>
+        </div>
+        <div class="card">
+            <div class="emoji-badge">📊</div>
+            <h3>数据与统计</h3>
+            <p>提供球队、运动员的赛季数据表格，涵盖关键指标与历史记录。适合需要客观数据辅助分析的用户。</p>
+        </div>
+        <div class="card">
+            <div class="emoji-badge">🔍</div>
+            <h3>内容检索</h3>
+            <p>通过分类标签或关键词筛选，缩小信息范围。平台结构偏向扁平，减少不必要的跳转层级。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="faq-summary">
+        <h2>常用说明 · 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">平台主要面向哪些用户？</div>
+            <div class="faq-a">对体育数据、赛事进程有查阅需求的普通用户或轻度研究者。界面以信息呈现为主，不包含互动社区或交易功能。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">可以在哪里找到关于具体联赛的页面？</div>
+            <div class="faq-a">在 <a href="https://mksports--official.com">MK体育</a> 首页导航区域可以按联赛或运动类别进入对应的数据板块。每个分类下均设有摘要与详细表格。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">信息更新频率如何？</div>
+            <div class="faq-a">赛事比分与排名数据会随官方来源定期同步。历史统计数据通常在每个赛季结束后进行归档更新。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要注册或登录？</div>
+            <div class="faq-a">平台当前提供的内容均为公开可查阅，无需注册即可浏览大部分页面。部分高级筛选或存档功能可能另行说明。</div>
+        </div>
+    </section>
+
+    <!-- 轻量底部 -->
+    <div class="footer-note">
+        © 本页为功能说明 · 内容仅供参考 · 数据来源以 <a href="https://mksports--official.com" style="color: #1d2b4b; text-decoration: underline;">MK体育</a> 实际页面为准
+    </div>
+</div>
+</body>
+</html>
