@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 信息指引页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce9d8 0%, #fbd9c0 50%, #f7ccb0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            color: #2e2620;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 白色卡片主体 */
+        .card {
+            background: #fff;
+            border-radius: 40px 20px 40px 20px;
+            box-shadow: 0 20px 35px -10px rgba(120, 70, 40, 0.25);
+            padding: 45px 40px 55px;
+            transition: all 0.2s ease;
+        }
+
+        /* 目录感布局——网格+间隔 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px 30px;
+            margin-top: 28px;
+        }
+
+        .section-head {
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            background: #f5e3d4;
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 30px;
+            color: #6d4c34;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #38271e;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #6d4c34;
+            border-left: 5px solid #d9a882;
+            padding-left: 18px;
+            margin: 18px 0 8px;
+            font-weight: 450;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-top: 15px;
+            color: #3b2d23;
+        }
+
+        .hero-text a {
+            font-weight: 600;
+        }
+
+        /* 统一链接样式：圆角按钮感 */
+        a {
+            color: #b2632c;
+            background: #f7ede5;
+            padding: 0.1em 0.5em;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+        a:hover {
+            background: #e6cfbb;
+            color: #7b4a24;
+            border-color: #c5936b;
+        }
+
+        .info-block {
+            background: #faf3ed;
+            border-radius: 24px;
+            padding: 22px 20px;
+            border: 1px solid #eddacb;
+        }
+
+        .info-block h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #4a3527;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-block p, .info-block li {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #3d2f25;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-block li {
+            padding: 6px 0 6px 24px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%23b2632c"><circle cx="12" cy="12" r="6"/></svg>') left center no-repeat;
+            background-size: 12px;
+        }
+
+        .tip-box {
+            background: #efe0d1;
+            border-radius: 40px 12px 40px 12px;
+            padding: 24px 25px;
+            margin: 30px 0 15px;
+            border-left: 6px solid #b87a50;
+        }
+
+        .tip-box strong {
+            color: #4c3223;
+        }
+
+        .faq-mini {
+            margin-top: 32px;
+            border-top: 2px solid #edd7c5;
+            padding-top: 28px;
+        }
+
+        .faq-item {
+            margin-bottom: 18px;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #3e2b1d;
+            margin-bottom: 5px;
+            background: #f8ede3;
+            padding: 6px 16px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        .faq-a {
+            padding-left: 18px;
+            color: #3f2f24;
+            line-height: 1.6;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #7a604c;
+            text-align: center;
+            border-top: 1px solid #e7d6c6;
+            padding-top: 25px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .card {
+                padding: 30px 18px 40px;
+                border-radius: 30px 12px 30px 12px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .subhead {
+                font-size: 1rem;
+            }
+            .info-block {
+                padding: 18px 16px;
+            }
+        }
+        @media (max-width: 420px) {
+            body {
+                padding: 18px 10px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .hero-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="card">
+        <h1>MK体育 · 使用指引</h1>
+        <div class="subhead">快速了解网站定位与内容结构</div>
+
+        <div class="hero-text">
+            如果你正在寻找一个专注于体育资讯与移动端体验的平台，<a href="https://mksports--mobile.com">MK体育</a> 提供了精简直接的访问方式。
+            本页整理站点核心信息分区，帮助你快速判断内容是否符合需要。
+        </div>
+
+        <!-- 目录感：两列信息块 -->
+        <div class="grid-2col">
+            <div class="info-block">
+                <h3>📋 站点说明</h3>
+                <ul>
+                    <li>移动优先设计，适配手机与平板浏览</li>
+                    <li>涵盖主流体育项目动态与基础数据</li>
+                    <li>界面风格简洁，降低浏览干扰</li>
+                    <li>更新节奏稳定，信息来源明确</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h3>🧭 内容方向</h3>
+                <ul>
+                    <li>赛事资讯与赛果摘要</li>
+                    <li>球队/选手相关简讯</li>
+                    <li>体育文化及赛事背景介绍</li>
+                    <li>非博彩、非投注导向</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 提示区：暖色独立框 -->
+        <div class="tip-box">
+            <strong>💡 使用提示</strong>  —— 建议直接访问 <a href="https://mksports--mobile.com">MK体育</a> 了解完整内容。
+            本页为辅助介绍，不可替代原站实时信息。部分栏目可能随运营调整。
+        </div>
+
+        <!-- 附加相关信息区：FAQ 摘要 -->
+        <div class="faq-mini">
+            <span class="section-head">常见疑问摘要</span>
+            <div class="faq-item">
+                <div class="faq-q">▸ 该网站主要提供什么？</div>
+                <div class="faq-a">以体育新闻、赛事简报、运动文化类内容为主，结构轻量，侧重移动端阅读便利性。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 是否包含互动功能？</div>
+                <div class="faq-a">目前以信息展示为核心，未强制注册或社交互动模块，保持低干扰浏览环境。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 内容更新频率？</div>
+                <div class="faq-a">常规赛事期间保持每日更新，非赛事期依据资讯价值调整。建议定期访问 <a href="https://mksports--mobile.com">MK体育</a> 获取最新。</div>
+            </div>
+        </div>
+
+        <!-- 收尾区域：温和引导 + 相关性说明 -->
+        <div class="footer-note">
+            <span>信息索引页 · 与 <a href="https://mksports--mobile.com">MK体育</a> 关联 · 仅做客观介绍</span><br>
+            <span style="opacity:0.65;">若页面内容与站点实际情况存在差异，以原始网站为准。</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
